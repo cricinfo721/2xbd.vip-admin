@@ -1,0 +1,319 @@
+.user-list {
+    background-color: #f1f1f1;
+    border-right: 1px solid #ddd;
+    padding: 20px 10px 20px 20px;
+    height: 83vh;
+    border-radius: 15px;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.user-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+.user-item  .list-group {
+    margin-bottom: 5px;
+}
+span.msg-time {
+    font-size: 12px;
+}
+
+.user-item .d-flex {flex-direction: column;}
+
+.user-item:hover {
+    background-color: #e9ecef;
+}
+
+.chat-card {
+    height: 83vh; /* Full height */
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px; /* Add rounded corners */
+}
+
+.chat-header {
+    background-color: #b50f58;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    /* max-height: 100%; */
+    font-size: .85rem;
+    /* overflow-y: auto;  */
+}
+
+.message {
+    color: #000;
+    clear: both;
+    line-height: 18px;
+    font-size: 15px;
+    padding: 8px 30px 8px 8px;
+    position: relative;
+    margin: 8px 0;
+    max-width: 85%;
+    word-wrap: break-word;
+    /* z-index: -1; */
+}
+
+.message.sent {
+    background: #e1ffc7;
+    border-radius: 5px 0px 5px 5px;
+    align-self: flex-end
+}
+
+.message.received {
+    background: #fff;
+    border-radius: 0px 5px 5px 5px;
+    float: left;
+    align-self: flex-start;
+}
+.message-input {
+    padding: 10px;
+}
+
+.user-item.active {
+    background-color: #b50f58; /* Active user background */
+    color: white; /* Active user text color */
+    border: none;
+}
+
+.custom-badge {
+    background-color: #000;
+    color: white;
+    font-size: 0.85rem;
+    float: right;
+    position: absolute;
+    left: -3px;
+    top: 5px;
+}
+
+.custom-badge:hover {
+    background-color: #e64a19; /* Change background on hover */
+}
+
+/* Optional: Add a hover effect for messages */
+.message:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+.time {
+    color: rgba(0, 0, 0, .45);
+    font-size: 11px;
+    margin-top: 2px; /* Space above time */
+    align-self: flex-end; /* Align time to the right */
+    white-space: nowrap;
+}
+
+.actions {
+    float: right;
+    margin: 0 0 0 20px;
+  }
+  
+  .actions.attachment {
+    margin: 0px 15px 0 5px;
+    display: flex;
+    align-items: center;
+}
+  
+ .actions.attachment i {
+    display: block;
+    transform: rotate(-45deg);
+    color : #e64a19
+  }
+  
+  .uploaded-image {
+    height: 65px; /* Full screen height */
+    width: 95px; /* Full screen width */
+  }
+
+
+  .message .dropdown-toggle::after {
+    top: -2px;
+    right: 0;
+    position: relative;
+}
+
+  .message span.status-icon {
+    float: right;
+    bottom: 0px;
+    font-size: 14px;
+    position: relative;
+    color: #53bdeb;
+    align-self: flex-end;
+}
+
+.message .msg {
+    display: flex;
+    gap: 10px;
+}
+
+.actions.recording {
+    float: right;
+    margin: 0 15px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.message button#dropdown-item-button {
+    padding: 0;
+    text-align: right;
+    float: right;
+    background: transparent;
+    margin-top: 2px;
+    margin-right: 0;
+    margin-left: 5px;
+}
+.message .dropdown-menu.show {
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    width: auto;
+    min-width: auto;
+    transform: translate3d(-0.2px, 19.1429px, 0px) !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+.message:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.message.received:after {
+    border-width: 0px 10px 10px 0;
+    border-color: transparent #fff transparent transparent;
+    top: 0;
+    left: -10px;
+}
+.message.sent:after {
+    border-width: 0px 0 10px 10px;
+    border-color: transparent transparent transparent #e1ffc7;
+    top: 0;
+    right: -10px;
+}
+.action-btn {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+}
+
+.timer-audio svg {
+    font-size: 25px;
+    color: red !important;
+    margin-right: 12px;
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+      -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+      -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+      animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+    
+  }
+  @-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+  } 
+  
+  @-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+  }
+  /* IE */
+  @-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+  } 
+  /* Opera and prob css3 final iteration */
+  @keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+  } 
+
+  .timer-audio {
+    background: #fff;
+    height: 50px;
+    line-height: 55px;
+    padding: 0 10px;
+    width: 92%;
+    position: absolute;
+    left: 0px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    bottom: -4px;
+}
+  
+  .timer-audio .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0202!important;
+    border: none;
+    color: #fff;
+    font-size: 31px!important;
+    cursor: pointer;
+    width: 29px!important;
+    height: 29px!important;
+    border-radius: 50%!important;
+    line-height: 29px!important;
+  }
+
+  .card-footer form{ position: relative;}
+
+  .list-group-item svg{ width: 24px;
+    height: 24px;
+    background: #b50f58;
+    border-radius: 50%;
+    padding: 10px;
+    fill: #fff;}
+
+    .list-group-item svg path{fill: #fff;} 
+    
+  

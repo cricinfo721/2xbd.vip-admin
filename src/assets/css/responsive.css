@@ -1,0 +1,330 @@
+@media (max-width: 1399.98px) {
+  .bet_status .bet-sec .form-group .form-control {
+    font-size: 13px;
+    padding: 6px 6px;
+  }
+  .bet_status .bet-sec .form-select {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  .total-balance-sec ul li strong {
+    font-size: 14px;
+  }
+  .common-tab .nav-tabs .nav-item {
+    margin-bottom: 9px;
+  }
+  .main-header .navbar-nav .nav-link {
+    padding: 6px 5px;
+    font-size: 11px;
+  }
+  /* .top-header .container,
+  .main-header .container {
+    max-width: 100%;
+  } */
+  .transaction-history .table {
+    width:100%;
+  }
+  .account-table.batting-table table {
+    width: 1200px;
+  }
+  .betting-profile-sec form {
+    flex: 0 0 33%;
+    max-width: 37%;
+    justify-content: end;
+  }
+}
+@media (max-width: 1199px) {
+  .main-header .navbar-collapse {
+    position: absolute;
+    top: 57px;
+    background: #000;
+    width: 100%;
+    z-index: 2;
+    left: 0;
+    right: 0;
+  }
+  .total-balance-sec ul li {
+    padding: 0px 10px;
+  }
+  .account-table .table {
+    width: 1200px;
+  }
+  .main-header .navbar-nav .nav-link {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  .main-header .navbar-toggler {
+    padding: 4px 7px;
+    background: #000;
+    font-size: 13px;
+  }
+  .main-header .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+  }
+
+  .total-balance-sec ul li strong {
+    font-size: 12px;
+  }
+  .bet_status .bet-sec .form-group input[type="date"] {
+    font-size: 11px;
+  }
+  .main-header .navbar-nav .nav-link {
+    padding: 8px 8px;
+    font-size: 13px;
+  }
+  .main-header .dropdown-item {
+    font-size: 13px;
+  }
+  .main-header-time-zone li {
+    display: inline-block;
+    margin-right: 7px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sidebar .sidebar-main ul li a {
+    font-size: 13px;
+  }
+  .total-balance-summary strong {
+    font-size: 30px;
+  }
+  .sidebar {
+    position: fixed;
+    left: -231px;
+    top: 0;
+    bottom: 0;
+    width: 210px;
+    height: 100%;
+    background: #fff;
+    overflow-y: auto;
+    padding-top: 29px;
+    transition: 0.4s;
+  }
+  .find-member-director .btn {
+    font-size: 14px;
+  }
+
+  .main-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  .total-balance-sec ul {
+    flex-wrap: wrap;
+  }
+  .total-balance-sec ul li {
+    display: inline-block;
+    max-width: 33.33%;
+    flex: 0 0 33.33%;
+    border-left: none;
+    padding: 10px 0px;
+  }
+  /**=================RR=============**/
+  .setting_dashboard_block > ul > li {
+    flex: 0 0 20%;
+    max-width: calc(20% - 12px);
+  }
+}
+
+@media (max-width: 767px) {
+  .breadcum-sec marquee {
+    width: 68%;
+  }
+
+  .betting-profile-sec form {
+    flex: 1 1;
+    max-width: 56%;
+    justify-content: start;
+    width: 100%;
+  }
+  .betting-profile-sec {
+    flex-direction: column;
+    align-items: normal !important;
+  }
+  .find-member-sec form .d-flex {
+    width: 50%;
+  }
+  /**================RR===============**/
+  .paymoney_form .form-control {
+    max-width: 150px;
+  }
+  .paymoney_form .btn {
+    padding: 7px 10px;
+  }
+
+  .setting_dashboard_block > ul > li {
+    flex: 0 0 25%;
+    max-width: calc(25% - 12px);
+  }
+}
+
+@media (max-width: 575px) {
+
+  .change-status-form .green-btn{margin-top:20px;}
+
+  .top-header .logo {
+    text-align: center;
+    margin-bottom: 9px;
+  }
+  .bet_status .bet-sec {
+    flex-direction: column;
+    align-items: normal;
+  }
+  .bet_status .bet-sec .form-label {
+    margin-bottom: 10px !important;
+  }
+  .block-modal-content h3 {
+    font-size: 15px;
+  }
+  .block-search-sec .btn {
+    font-size: 13px;
+  }
+  .change-password-sec .d-flex {
+    flex-direction: column;
+    align-items: start !important;
+  }
+
+  .change-password-sec .d-flex label {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .top_player-wrap table {
+    width: 455px;
+  }
+
+  .top_player-wrap .responsive {
+    overflow-x: auto;
+  }
+  .top_player-wrap ul {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 459px;
+    overflow-x: auto;
+  }
+  .match-sec-sroller {
+    overflow-x: auto;
+  }
+  .agent-path li a strong {
+    font-size: 15px;
+  }
+  .common-tab .nav-tabs .nav-item .nav-link {
+    padding: 4px 15px 4px;
+    font-size: 13px;
+  }
+  .exposure-content table td {
+    font-size: 12px;
+  }
+  .changestatus-option ul li {
+    max-width: calc(33.33% - 16px);
+    margin: 0px 8px;
+    padding: 6px;
+    font-size: 12px;
+  }
+  .change-status-form form .f-group {
+    margin-bottom: 11px;
+    flex: 1;
+    max-width: 100%;
+  }
+  .change-status-form form {
+    flex-direction: column;
+  }
+  .changestatus-option {
+    padding: 22px 9px;
+  }
+  .total-balance-summary strong {
+    font-size: 22px;
+  }
+  .total-balance-summary dt {
+    font-size: 15px;
+  }
+  .betting-profile-sec form {
+    flex: 1 1;
+    max-width: 87%;
+  }
+  .history-btn li a {
+    font-size: 13px;
+    padding: 5px 6px;
+  }
+  .history-btn li {
+    margin-right: 7px;
+    margin-bottom: 9px;
+  }
+  .bet_status .bet-sec label.form-label,
+  .bet_status .bet-sec.bet-period .form-label {
+    flex: 0 0 1%;
+    max-width: 100%;
+    padding: 0px 4px;
+  }
+  .bet_status .bet-sec.bet-period .form-group {
+    flex: 0 0 0%;
+    max-width: 100%;
+  }
+  .breadcum-sec .bredcum-sec-main {
+    padding: 8px 22px;
+    border-radius: 0;
+    margin: 0px -12px;
+  }
+  .main-header-time-zone li {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .breadcum-sec marquee a {
+    font-size: 14px;
+  }
+  .top-header {
+    padding: 9px 0px;
+  }
+  .find-member-sec form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .find-member-sec form .position-relative {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  .total-balance-sec ul {
+    padding: 13px 11px;
+  }
+  .total-balance-sec ul li strong {
+    font-size: 13px;
+  }
+  .total-balance-sec ul li dt {
+    font-size: 11px;
+  }
+  .find-member-sec form .d-flex {
+    width: 100%;
+  }
+  .total-balance-sec ul li {
+    flex: 0 0 50%;
+    padding: 6px 0px;
+    border-bottom: 1px solid #0000002b;
+    max-width: 50%;
+  }
+  /**==============RR==========**/
+  .paymoney_form .btn,
+  .paymoney_form .form-control {
+    margin: 10px 0;
+    width: 200px;
+    max-width: 200px;
+  }
+  .paymoney_form .btn {
+    margin: 0;
+  }
+  .bank_balance_detail h6 {
+    margin: right 0;
+    margin-bottom: 10px;
+    border-right: none;
+  }
+
+  .setting_dashboard_block > ul > li {
+    flex: 0 0 33.333%;
+    max-width: calc(33.333% - 12px);
+  }
+}
+
+@media (max-width: 479px) {
+  .setting_dashboard_block > ul > li {
+    flex: 0 0 50%;
+    max-width: calc(50% - 12px);
+  }
+}
