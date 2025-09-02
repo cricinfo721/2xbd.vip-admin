@@ -12,8 +12,6 @@ import AddBank from "./AddBank";
 import UpdateDialogBox from "../../components/UpdateDialogBox";
 import { toast } from "wc-toast";
 const Banks = () => {
-  let { user } = useContext(AuthContext);
-
   const [open, setOpen] = useState({
     status: false,
     type: "",
@@ -71,18 +69,16 @@ const Banks = () => {
         <Container fluid>
           <div className="db-sec d-flex justify-content-between align-items-center w-100 mb-2">
             <h2 className="common-heading">Banks</h2>
-            {/* {user?.userType == "owner" && (  */}
-              <Button
-                onClick={() =>
-                  setOpen({
-                    status: true,
-                    type: "add",
-                  })
-                }
-              >
-                + Add Bank
-              </Button>
-            {/* )}  */}
+            <Button
+              onClick={() =>
+                setOpen({
+                  status: true,
+                  type: "add",
+                })
+              }
+            >
+              + Add Bank
+            </Button>
           </div>
           <div className="inner-wrapper">
             <div className="common-container">
@@ -112,55 +108,43 @@ const Banks = () => {
                             <td>{item?.account_number || "-"}</td>
                             <td>{helpers.dateFormat(item?.createdAt)}</td>
                             <td>
-                               {/* {user?.userType == "owner" && (  */}
-                                <>
-                                  <Button
-                                    className="btn btn-primary"
-                                    style={{
-                                      background: "green",
-                                      color: "white",
-                                    }}
-                                    onClick={() =>
-                                      setOpen({
-                                        status: true,
-                                        type: "edit",
-                                        data: item,
-                                      })
-                                    }
-                                  >
-                                    Edit
-                                  </Button>
-                                  <Button
-                                    className="btn btn-danger"
-                                    style={{
-                                      background: "red",
-                                      color: "white",
-                                    }}
-                                    onClick={() => {
-                                      setShow(true);
-                                      setId(item?._id);
-                                    }}
-                                  >
-                                    Delete
-                                  </Button>
-                                </>
-                              {/* )}  */}
+                              <Button
+                                className="btn btn-primary"
+                                style={{ background: "green", color: "white" }}
+                                onClick={() =>
+                                  setOpen({
+                                    status: true,
+                                    type: "edit",
+                                    data: item,
+                                  })
+                                }
+                              >
+                                Edit
+                              </Button>
+                              <Button
+                                className="btn btn-danger"
+                                style={{ background: "red", color: "white" }}
+                                onClick={() => {
+                                  setShow(true);
+                                  setId(item?._id);
+                                }}
+                              >
+                                Delete
+                              </Button>
                             </td>
                             <td>
-                             {/* {user?.userType == "owner" && (  */}
-                                <Form.Check
-                                  inline
-                                  label={""}
-                                  type="switch"
-                                  checked={item?.status}
-                                  onChange={(e) =>
-                                    updateStatus({
-                                      status: e.target.checked,
-                                      id: item?._id,
-                                    })
-                                  }
-                                />
-                             {/* )}  */}
+                              <Form.Check
+                                inline
+                                label={""}
+                                type="switch"
+                                checked={item?.status}
+                                onChange={(e) =>
+                                  updateStatus({
+                                    status: e.target.checked,
+                                    id: item?._id,
+                                  })
+                                }
+                              />
                             </td>
                           </tr>
                         );

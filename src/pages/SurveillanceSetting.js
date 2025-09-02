@@ -36,7 +36,7 @@ const SurveillanceSetting = () => {
                     </figure>{" "}
                   </Link>{" "}
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/BetCount">
                     {" "}
                     <figure>
@@ -44,7 +44,7 @@ const SurveillanceSetting = () => {
                       <img src="../assets/images/cheatbet.png" />{" "}
                     </figure>{" "}
                   </Link>{" "}
-                </li>
+                </li> */}
                 <li>
                   <Link to="/PlayerBalance">
                     {" "}

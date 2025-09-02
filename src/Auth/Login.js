@@ -5,6 +5,7 @@ import AuthContext from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import helpers from "../utils/helpers";
+import { AiFillEye,AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,16 +23,18 @@ const Login = () => {
       uniqueId: Math.random() * 10000,
     },
   });
-  const [getValidateCode, setValidateCode] = useState("");
+  // const [getValidateCode, setValidateCode] = useState("");
 
   const onSubmit = (data) => {
-    //if (parseInt(data.validateCode) === parseInt(getValidateCode)) {
+    // if (parseInt(data.validateCode) === parseInt(getValidateCode)) {
       loginUser(data);
       // navigate('/')
-    //}
+    // }
   };
 
-  // const canvasRef = useRef(null);
+  const canvasRef = useRef(null);
+
+  //   const [canvaData, setCanvaData] = useState("Hello wordl");
 
   // const changeCode = () => {
   //   const canvas = canvasRef.current;
@@ -55,7 +58,16 @@ const Login = () => {
   // useEffect(() => {
   //   changeCode();
   // }, []);
-
+  const [passwordType, setPasswordType] = useState("password");
+  const togglePassword =(e)=>{
+    e.preventDefault()
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     return;
+    }
+    setPasswordType("password")
+  }
   return (
     <div>
       <Helmet>
@@ -92,14 +104,22 @@ const Login = () => {
                       )}
                     </Form.Group>
                     <Form.Group className="mb-2">
+                    <div style={{ position:'relative',width:`100%`}}>
                       <Form.Control
-                        type="password"
+                       type={passwordType ?passwordType:"password"}
+
                         placeholder="Password"
                         className={errors.password ? "is-invalid" : ""}
                         {...register("password", {
                           required: "Please enter password",
                         })}
                       />
+                       <div className="input-group-btn" style={{position:'absolute', right:'0', top:'-10', bottom:'0px'}}>
+                                    <span className="btn btn-outline-primary" onClick={togglePassword} style={{backgroundColor:'transparent', border:'0',padding:'8px', paddingTop:'3px', height:'72%'}}>
+                                      {passwordType==="password"?<AiFillEyeInvisible color="#000"/> :  <AiFillEye color="#000"/>}
+                                    </span>
+                                  </div>
+                                </div>
                       {errors.password && errors.password.message && (
                         <label className="invalid-feedback text-left">
                           {errors.password.message}
@@ -122,7 +142,7 @@ const Login = () => {
                         })}
                       />
                       <canvas ref={canvasRef} onClick={changeCode} />
-                      
+                     
                       {errors.validateCode && errors.validateCode.message && (
                         <label className="invalid-feedback text-left">
                           {errors.validateCode.message}
@@ -146,21 +166,21 @@ const Login = () => {
                     href="#"
                     className="support-whatsapp open"
                   >
-                    <img src="assets/images/telegram.svg" title="WhatsApp" />
+                    <img src="assets/images/watsapp.svg" title="WhatsApp" />
                   </a>
                 </div>
 
-                 <div className="support-info">
+                <div className="support-info">
                   <div
                     id="supportDetail_whatsapp"
                     className="support-detail open"
                   >
-                    <a href="https://t.me/+">+</a>
+                    <a href="https://wa.me/+">+</a>
                   </div>
-                </div> 
-              </div>
-              <div className=""style={{color:`#fff`,fontSize:`16px`,marginTop:`5px`,textAlign:`center`}}>Affiliate Link  <a href={"https://aff."+helpers?.getDomain()+"/"} target="_blank" className="">Click </a></div>
+                </div>
+                <div className=""style={{color:`#fff`,fontSize:`16px`,marginTop:`5px`,textAlign:`center`}}>Affiliate Link  <a href={"https://aff."+helpers?.getDomain()+"/"} target="_blank" className="">Click </a></div>
 
+              </div>
             </div>
           </div>
         </Container>

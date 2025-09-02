@@ -210,11 +210,13 @@ export const BettingProfitLossTab = ({
                     a = parseFloat(a) + parseFloat(v.amount);
                     return a;
                   }, 0);
-                  const backTotalProfitAmount = item?.bets_list?.reduce(
+                  const backTotalProfitAmount = item?.bets_list?.reduce(        
                     (a, v) => {
+                      const winId=  betType=="sportBook"? v?.fancySelectionId:v?.selectionId;
+                     
                       if (
                         v?.betType === "back" &&
-                        v?.teamSelectionWin === v?.selectionId
+                        v?.teamSelectionWin === winId
                       ) {
                         a = parseFloat(a) + parseFloat(v.profitAmount);
                       }
@@ -225,25 +227,28 @@ export const BettingProfitLossTab = ({
                   
                   const backTotalLoseAmount = item?.bets_list?.reduce(
                     (a, v) => {
+                      const winId=  betType=="sportBook"? v?.fancySelectionId:v?.selectionId;
                       if (
                         v?.betType === "back" &&
-                        v?.teamSelectionWin !== v?.selectionId
+                        v?.teamSelectionWin !== winId
                       ) {
                         a = parseFloat(a) + parseFloat(v.loseAmount);
                       }
                       return a;
                     },
                     0
-                  );
+                  );          
                   let backSubTotalresult =
                     backTotalProfitAmount > backTotalLoseAmount
                       ? backTotalProfitAmount - backTotalLoseAmount
                       : -(backTotalLoseAmount - backTotalProfitAmount);
                   const layTotalProfitAmount = item?.bets_list?.reduce(
                     (a, v) => {
+                      const winId=  betType=="sportBook"? v?.fancySelectionId:v?.selectionId;
                       if (
+                        
                         v?.betType === "lay" &&
-                        v?.teamSelectionWin !== v?.selectionId
+                        v?.teamSelectionWin !==winId
                       ) {
                         a = parseFloat(a) + parseFloat(v.profitAmount);
                       }
@@ -252,9 +257,10 @@ export const BettingProfitLossTab = ({
                     0
                   );
                   const layTotalLoseAmount = item?.bets_list?.reduce((a, v) => {
+                    const winId=  betType=="sportBook"? v?.fancySelectionId:v?.selectionId;
                     if (
                       v?.betType === "lay" &&
-                      v?.teamSelectionWin === v?.selectionId
+                      v?.teamSelectionWin ===winId
                     ) {
                       a = parseFloat(a) + parseFloat(v.loseAmount);
                     }
@@ -264,7 +270,7 @@ export const BettingProfitLossTab = ({
                     layTotalProfitAmount > layTotalLoseAmount
                       ? layTotalProfitAmount - layTotalLoseAmount
                       : -(layTotalLoseAmount - layTotalProfitAmount);
-                     
+
                   let marketSubTotal = backSubTotalresult + laySubTotalresult;
                   const yesTotalProfitAmount = item?.bets_list?.reduce(
                     (a, v) => {
@@ -275,7 +281,6 @@ export const BettingProfitLossTab = ({
                     },
                     0
                   );
-                  
 
                   const yesTotalLoseAmount = item?.bets_list?.reduce((a, v) => {
                     if (v?.type == "Yes" && v?.decisionRun < v?.betRun) {
@@ -307,20 +312,23 @@ export const BettingProfitLossTab = ({
                       ? noTotalProfitAmount - noTotalLoseAmount
                       : -(noTotalLoseAmount - noTotalProfitAmount);
                   const resultCommission = item?.bets_list?.reduce((a, v) => {
-                    a = parseFloat(a) + parseFloat(v.commission ? v.commission : 0);
+                    a =
+                      parseFloat(a) +
+                      parseFloat(v.commission ? v.commission : 0);
                     return a;
                   }, 0);
 
                   let fancyMarketSubTotal =
                     yesSubTotalresult + noSubTotalresult;
 
-                  let fancyNetAmount =fancyMarketSubTotal;
-                  let netAmount=0
-                  if(betType=="toss" || betType=="tie" ){
-                     netAmount =
-                    marketSubTotal;
-                  }else{ netAmount =
-                    marketSubTotal - (marketSubTotal * comission) / 100;}
+                  let fancyNetAmount = fancyMarketSubTotal;
+                  let netAmount = 0;
+                  if (betType == "toss" || betType == "tie") {
+                    netAmount = marketSubTotal;
+                  } else {
+                    netAmount =
+                      marketSubTotal ;
+                  }
 
                   
                     

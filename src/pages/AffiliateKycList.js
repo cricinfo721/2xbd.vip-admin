@@ -166,9 +166,7 @@ const AffiliateKycList = () => {
                             <td>{item?.status}</td>
                             <td>{obj?.dateFormat(item?.createdAt)}</td>
                             <td>
-                              {item?.status=="pending" &&
-                              <>
-                                                            <Button
+                              <Button
                                 className="btn btn-primary"
                                 style={{ background: "green", color: "white" }}
                                 onClick={() =>
@@ -196,8 +194,6 @@ const AffiliateKycList = () => {
                               >
                                 Decline
                               </Button>
-                              </>}
-
                               {/* <Button
                                 className="btn btn-danger"
                                 style={{ background: "red", color: "white" }}

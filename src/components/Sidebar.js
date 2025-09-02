@@ -81,7 +81,7 @@ const Sidebar = () => {
                 </Link>
               </li>
             )}
-             {params.type === "user" && (
+            {params.type === "user" && (
               <li>
                 {" "}
                 <Link

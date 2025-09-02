@@ -223,8 +223,6 @@ const WalletDeposit = () => {
                               )}
                             </td>
                             <td>
-                            {/* {user?.userType=="owner" &&( */}
-                            <>
                               <Button
                                 className="btn btn-primary"
                                 style={{ background: "green", color: "white" }}
@@ -253,8 +251,6 @@ const WalletDeposit = () => {
                               >
                                 Decline
                               </Button>
-                              </>
-                       {/* ) } */}
                             </td>
                           </tr>
                         );

@@ -18,8 +18,8 @@ const obj = {
   },
   user_next_status: {
     owner: "sub_owner",
-    sub_owner: "Super Affiliate",
-    super_agent: "Affiliate",
+    sub_owner: "agent",
+    // super_agent: "agent",
     agent: "user",
   },
   market_Status: {
@@ -2861,6 +2861,7 @@ const obj = {
         type: "SLOT",
       },
     ],
+  
   
    
 };

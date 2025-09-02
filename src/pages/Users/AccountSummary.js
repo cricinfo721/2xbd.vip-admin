@@ -9,7 +9,7 @@ import {
   Form,
 } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar";
-import { apiGet, apiPost } from "../../utils/apiFetch";
+import { apiGet, apiPost,apiPut } from "../../utils/apiFetch";
 import apiPath from "../../utils/apiPath";
 import { isEmpty, pick, sum } from "lodash";
 import { useParams } from "react-router-dom";
@@ -152,7 +152,50 @@ const AccountSummary = () => {
     toast.success("Link Copied!");
     return window.navigator.clipboard.writeText(text);
   }
+  const [mobile, setMobile] = useState({
+    status: false,
+    item: "",
+  });
+  const {
+    register: register3,
+    handleSubmit: handleSubmit3,
+    formState: { errors: errors3 },
+    reset: reset3,
+    setValue: setValue3,
+    watch: watch3,
+  } = useForm({});
+  const updateMobile = async (request) => {
+   
+      // let num = String(880) + String(watch3("phone"));
+      let num =  String(watch3("phone"));
+      if(String(watch3("phone"))){
+        const { status, data: response_users } = await apiPut(
+          apiPath.profileUpdate+"/"+params?.id,
+          { phone: Number(num),
+            first_name:summaryData?.firstName?summaryData?.firstName:"",
+             last_name:summaryData?.lastName?summaryData?.lastName:"",
+             email:summaryData?.email?summaryData?.email:""
+           }
 
+        );
+        if (status === 200) {
+          if (response_users.success) {
+            toast.success(response_users.message);
+            accountSummary();
+            setMobile({ status: false });
+            reset3();
+          } else {
+            toast.error(response_users.message);
+          }
+        }else{
+          toast.error(response_users.message);
+        }
+      }else{
+        toast.error("Please enter phone number");
+      }
+     
+   
+  };
   return (
     <div>
       <section className="py-4 main-inner-outer">
@@ -323,6 +366,23 @@ const AccountSummary = () => {
                               <td className="text-start">
                                 {summaryData?.phone}
                               </td>
+                              { user?.userType == "sub_owner" && summaryData?.userType=="user" &&
+                              <td> <Link
+                                  to="#"
+                                  className="text-decoration-none text-primary btn theme_light_btn"
+                                  onClick={() => {
+                                    {
+                                      setMobile({
+                                        status: true,
+                                        item: summaryData?.phone || "",
+                                      });
+                                      setValue3("mobile", summaryData?.phone || "");
+                                    }
+                                  }}
+                                >
+                                  Edit{" "}
+                                  <i className="fas fa-pen text-primary ps-1"></i>
+                                </Link></td>}
                             </tr>
                           </tbody>
                         </Table>
@@ -616,6 +676,89 @@ const AccountSummary = () => {
           </div>
         </Modal.Body>
       </Modal>
+      {mobile?.status && (
+        <Modal
+          show={mobile?.status}
+          onHide={() => {
+            setMobile({ status: false });
+          }}
+          className="change-status-modal p-0"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title className="modal-title-status h4">
+              Edit Phone Number
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="test-status border-0">
+              <Form
+                className="change-password-sec"
+                onSubmit={handleSubmit3(updateMobile)}
+              >
+                <Form.Group className="d-flex mb-2 flex-column align-items-start">
+                  {/* <span
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "13px",
+                      marginBottom: "7px",
+                    }}
+                  >
+                    Phone Number
+                  </span>
+                  <span
+                    style={{
+                      position: "absolute",
+                      background: "#b8b8b8",
+                      top: "44%",
+                      height: "1.8rem",
+                      fontSize: "12px",
+                      color: "black",
+                      borderRadius: "5px",
+                      fontWeight: "700",
+                      display: "flex",
+                      alignItems: "center",
+                      padding: "0 5px",
+                    }}
+                  >
+                    +880
+                  </span> */}
+                  <Form.Control
+                    type="text"
+                    placeholder="example: 880123456789"
+                    className={errors3.phone ? " is-invalid " : ""}
+                    
+                    {...register3("phone", {
+                      required: "Please enter phone number",
+                    })}
+                  />
+                  {errors3.phone && errors3.phone.message && (
+                    <label className="invalid-feedback align-leftt">
+                      {errors3.phone.message}
+                    </label>
+                  )}
+                </Form.Group>
+
+                
+              </Form>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <div>
+              <Button
+                onClick={() => {
+                  setMobile({
+                    status: false,
+                  });
+                }}
+                className="btn-light"
+              >
+                Close
+              </Button>
+              <Button onClick={() => updateMobile()}>Submit</Button>
+            </div>
+          </Modal.Footer>
+        </Modal>
+      )}
       {/* change-exposure-modal-end*/}
     </div>
   );

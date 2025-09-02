@@ -444,7 +444,7 @@ const UserList = (props) => {
                         >
                           <i className="fas fa-user"></i>
                         </Link>
-                       {user?.userType!=="user" && (props?.data=="owner" || props?.data == "sub_owner" )?
+                       {user?.userType!=="user" &&
                         <Link
                           title="Block Market"
                           // to={`/account-summary/${user?._id}/${user?.userType}`}
@@ -455,7 +455,7 @@ const UserList = (props) => {
                         >
                           <i className="fas fa-lock"></i>
                         </Link>
-                :""}
+                }
                       </td>
                     </tr>
                   );

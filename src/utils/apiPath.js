@@ -158,8 +158,7 @@ const pathObj = {
   riskListAll: "/v1/admin/match/risk-profile-list-all",
   updateStatusBank: "/v1/admin/update-bank-status",
   withdrawalCheck:"/v1/admin/withdrawal-check",
-  withdrawalProcessCheck: "/v1/admin/withdrawal-process-check",
-  withdrawalProcessCheckUpdate: "/v1/admin/withdrawal-process-agent-update",
+  profileUpdate: "/v1/admin/edit-profile",
 
   turnoverList:"/v1/admin/turnover-list",
   kycUpload: "/v1/admin/kyc-upload",
@@ -168,7 +167,9 @@ const pathObj = {
   kycLists: "/v1/admin/kyc-lists",
   deleteDocument: "/v1/admin/delete-document",
   updateKycStatus: "/v1/admin/update-kyc-status",
+  reportDownlineNew: "/v1/admin/report/downline-new",
   editProfile: "/v1/admin/edit-profile",
+
 
 };
 export default pathObj;

@@ -25,6 +25,7 @@ instance.interceptors.request.use((config) => {
       "/v1/cron/match-odds",
       "/v1/cron/fancy-odds",
       "/v1/cron/bookmaker-odds",
+      "/v1/admin/report/downline-new"
     ].includes(config?.url?.split("?")[0])
   ) {
     document.getElementById("loader").style.display = "block";

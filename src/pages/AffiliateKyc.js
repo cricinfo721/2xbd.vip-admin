@@ -173,7 +173,7 @@ const AffiliateKyc = () => {
                 <Col lg={6}>
                   <Row className="">
                     <Col sm={12} className="mb-3">
-                    <Form.Label className="mt-2 me-2">Document Type:</Form.Label>
+                    <Form.Label className="mt-2 me-2">জাতীয় পরিচয় পত্র অথবা পাসপোর্ট পত্র বাছাই করুন।:</Form.Label>
                       <Form.Group>
                         <Form.Select {...register("documentType")}>
                           <option
@@ -192,7 +192,7 @@ const AffiliateKyc = () => {
                       </Form.Group>
                     </Col>
                     <Col sm={12} className="mb-3">
-                    <Form.Label className="mt-2 me-2">Document Number:</Form.Label>
+                    <Form.Label className="mt-2 me-2">আপনার NID কার্ডের নাম্বার লেখুন।:</Form.Label>
                       <Form.Group>
                         <Form.Control
                           type="text"
@@ -224,7 +224,7 @@ const AffiliateKyc = () => {
                       </Form.Group>
                     </Col>
                     <Col sm={12} className="mb-3">
-                    <Form.Label className="mt-2 me-2">Contact Number:</Form.Label>
+                    <Form.Label className="mt-2 me-2">আপনার পার্সোনাল নাম্বার লেখুন।:</Form.Label>
                       <Form.Group>
                         <Form.Control
                           type="text"
@@ -254,7 +254,7 @@ const AffiliateKyc = () => {
                       </Form.Group>
                     </Col>
                     <Col sm={12} className="mb-3">
-                    <Form.Label className="mt-2 me-2">Document Name (note: name should be match from document ):</Form.Label>
+                    <Form.Label className="mt-2 me-2">যেভাবে NID কার্ডে যে নাম দেওয়া আছে সেভাবেই নাম লেখুন।:</Form.Label>
                       <Form.Group>
                         <Form.Control
                           type="text"
@@ -283,7 +283,7 @@ const AffiliateKyc = () => {
                       </Form.Group>
                     </Col>
                     <Col sm={12} className="mb-3">
-                    <Form.Label className="mt-2 me-2">Uplaod KYC File:</Form.Label>
+                    <Form.Label className="mt-2 me-2">সকল এফিলেট কে নিজ নিজ ভোটার (NID) অথবা পাসপোর্ট আইডি হাতে নিয়ে  সেলফি আপলোড করে KYC পুরন করুন।:</Form.Label>
                       <Form.Group>
                         <input
                           type="file"

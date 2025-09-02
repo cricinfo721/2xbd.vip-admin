@@ -47,7 +47,7 @@ const ComissionReport = () => {
   const parmas = useParams();
   const location = useLocation();
   const user_params = compact(location.pathname.split("/"));
-  let { user, profileData, getProfileData } = useContext(AuthContext);
+  let { user, profileData,getProfileData } = useContext(AuthContext);
   const [results, setResults] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [viewpage, setViewPage] = useState(0);
@@ -150,7 +150,7 @@ const ComissionReport = () => {
   const [prevData, setPrevData] = useState({});
   const [otp, setOtp] = useState(false);
   const [otpNumber, setOtpNumber] = useState("");
-
+  
   const onSubmitWithdraw = async () => {
     let body = {
       amount: prevData?.amount,
@@ -168,9 +168,8 @@ const ComissionReport = () => {
         getData();
         getWithdrwaRequest();
         if (profileData?.phone?.toString()?.length > 5) {
-          getProfileData();
+          getProfileData()
         }
-        setOtp(false);
       } else {
         toast.error(data?.message);
         reset();
@@ -208,9 +207,9 @@ const ComissionReport = () => {
         countryCode: inputRef?.current?.state.selectedCountry?.countryCode,
       };
     }
-     setOtp(true);
-      setModal(false);
-      setPrevData(body);
+    setPrevData(body);
+    setOtp(true);
+    setModal(false);
     // const { data: response_data, status } = await apiPost(
     //   apiPath.sendOTP,
     //   profileData?.phone?.toString()?.length > 5
@@ -221,6 +220,7 @@ const ComissionReport = () => {
     //       }
     // );
     // if (response_data?.success) {
+      
     //   setOtpNumber(response_data?.results?.otp);
     //   setOtp(true);
     //   setModal(false);
@@ -253,20 +253,22 @@ const ComissionReport = () => {
     }
   };
 
+
   const checkWithdrawal = async () => {
     try {
       const { status, data: response_users } = await apiGet(
         apiPath.withdrawalCheck,
         {}
       );
-
+    
       if (status === 200) {
-        if (response_users.success) {
+        if(response_users.success){
           setModal(true);
-        } else {
+        }else{
           toast.error(response_users.message);
         }
-      } else {
+       
+      }else{
         toast.error(response_users.message);
       }
     } catch (err) {
@@ -274,39 +276,31 @@ const ComissionReport = () => {
     }
   };
 
+  const percentage=user?.withdrawLimitUL?100:60;
   return (
     <div>
       <section className="main-inner-outer py-4">
         <Container fluid>
           <Row>
-            <marquee
-              direction="left"
-              class="transaction-errMsg text-danger depositMsg"
-            >
-              <p
-                style={{
-                  width: "100%",
-                  textAlign: "center",
-                  fontWeight: "800",
-                  fontSize: "18px",
-                  margin: 0,
-                  padding: 0,
-                }}
-              >
-                {`সপ্তাহে ৬০% কমিশন ব্যাংকের মাধ্যমে পুরোটাই উইথড্র করতে পারবেন। বিকাশ/নাগাদে দিনে ৩০ করে সপ্তাহে ২ লাখ উত্তলন করতে পারেন। ধন্যবাদ`}
-              </p>
-              <p  style={{
-                  width: "100%",
-                  textAlign: "center",
-                  fontWeight: "800",
-                  fontSize: "18px",
-                  margin: 0,
-                  padding: 0,
-                }}>
-               
-                0-2 = 10% ,3-5= 20% ,5-8= 25% ,8+  Rest of Percent 
-              </p>
-            </marquee>
+          {percentage&& percentage==60
+          &&  <marquee
+          direction="left"
+          class="transaction-errMsg text-danger depositMsg"
+        >
+          <p
+            style={{
+              width: "100%",
+              textAlign: "center",
+              fontWeight: "800",
+              fontSize: "18px",
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {`সপ্তাহে 60% কমিশন ব্যাংকের মাধ্যমে পুরোটাই উইথড্র করতে পারবেন। বিকাশ/নাগাদে দিনে 70% করে সপ্তাহে ২ লাখ উত্তলন করতে পারেন। ধন্যবাদ`}
+          </p>
+        </marquee>}
+           
             <div className="d-flex p-3 w-100 justify-content-around">
               <div className="w-50 p-2">
                 <h5
@@ -323,7 +317,7 @@ const ComissionReport = () => {
                         <strong>
                           BDT{" "}
                           {`${helpers.currencyFormat(
-                            Math.abs(results?.totalBet)
+                            Math.abs(results?.sumData * 2)
                           )}`}
                         </strong>
                       </li>
@@ -402,9 +396,8 @@ const ComissionReport = () => {
                       </li>
                       <li>
                         <button
-                          onClick={
-                            () => checkWithdrawal()
-
+                          onClick={()=>checkWithdrawal()
+                           
                             // toast.error("Withdraw will be active at 4pm")
                           }
                           className="withdraw-btn"
@@ -761,9 +754,10 @@ const ComissionReport = () => {
                 id="deposit_form"
                 class="deposit_form"
               >
+                 {percentage&& percentage==60 &&
                 <div class="transaction-errMsg text-danger depositMsg mb-2">
-                  {`প্রিয় এফিলিয়েট, আপনার মোট জমা টাকা থেকে ৬০% ৳ উত্তলন করতে পাবেন।  ধন্যবাদ।`}
-                </div>
+                  {`প্রিয় এফিলিয়েট, আপনার মোট জমা টাকা থেকে 60% ৳ উত্তলন করতে পাবেন।  ধন্যবাদ।`}
+                </div>}
 
                 <div class="usrTrans-seperate bankInfoField">
                   <div class="transaction-title">
@@ -786,6 +780,7 @@ const ComissionReport = () => {
                       <option value="NAGAD">NAGAD</option>
                       <option value="bank">Bank</option>
                       <option value="phonepegpay">Phonepe/gpay</option>
+                      
                     </select>
                   </div>
                   {errors?.bank?.message && (
@@ -890,11 +885,11 @@ const ComissionReport = () => {
                   </>
                 )}
 
-                <div class="usrTrans-seperate deposit-amount">
+          <div class="usrTrans-seperate deposit-amount">
                   <div class="transaction-title">
                     <span>Amount</span>{" "}
                     {!isEmpty(watch("bank")) && watch("bank") == "bank"
-                      ? `(Min 50000  - Max 1000000)`
+                      ? `(Min 50000  - Max 200000)`
                       : `(Min 500 - Max 30000)`}
                     <span class="important-icon">*</span>
                   </div>
@@ -905,17 +900,19 @@ const ComissionReport = () => {
                           value: true,
                           message: "Please enter amount",
                         },
+                        
                         validate: (value) => {
                           if (value > 0) {
                             if (
                               !isEmpty(watch("bank")) &&
                               watch("bank") == "bank"
                             ) {
+                              
                               let min = Number(
-                                (results?.sumData * 60) / 100
+                                (results?.sumData * percentage) / 100
                               )?.toFixed(2);
-                              if (Number(value) > 1000000) {
-                                return "Amount should not be greater than 1000000.";
+                              if (Number(value) > 200000) {
+                                return "Amount should not be greater than 200000.";
                               } else if (Number(value) < 50000) {
                                 return "Min Withdraw amount should be 50000 or greater than 50000";
                               } else if (Number(value) > Number(min)) {
@@ -923,7 +920,7 @@ const ComissionReport = () => {
                               }
                             } else {
                               let min = Number(
-                                (results?.sumData * 60) / 100
+                                (results?.sumData * percentage) / 100
                               )?.toFixed(2);
                               if (Number(value) > 30000) {
                                 return "Amount should not be greater than 30000.";
@@ -1051,10 +1048,10 @@ const ComissionReport = () => {
           onSubmit={handelVerifyOTP}
         />
       )} */}
-      {otp && (
+        {otp && (
         <EnterPassword
           open={otp}
-          // otpNumber={otpNumber}
+          otpNumber={otpNumber}
           onClose={() => setOtp(false)}
           onSubmit={onSubmitWithdraw}
         />

@@ -601,7 +601,7 @@ const SearchUser = () => {
                                         <option value="active">Active</option>
                                         <option value="suspend">Suspend</option>
                                         <option value="locked">Locked</option>
-                                        <option value="cheater">Cheater</option>
+                                        {/* <option value="cheater">Cheater</option> */}
                                       </Form.Select>
                                     </Form.Group>
                                   )}
@@ -617,7 +617,7 @@ const SearchUser = () => {
                                     <i className="fas fa-pen text-white ps-1"></i>
                                   </Link>
                                 </td>
-                             <td>
+                                {/* <td>
                                   <div className="deposite-withdraw">
                                     <div className="dw-toggle">
                                       <div className="tgl_btn">
@@ -703,7 +703,7 @@ const SearchUser = () => {
                                     ) : (
                                       ""
                                     )}
-                                </td> 
+                                </td> */}
                               </tr>
                             );
                           })}

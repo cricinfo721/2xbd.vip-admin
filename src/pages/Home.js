@@ -216,9 +216,7 @@ const Home = () => {
                   <div className="d-flex flex-wrap justify-content-between">
                     <Hierarchy results={results} />
                     <div className="find-member-director text-xl-end ">
-                       {
-                        user?.userType!=="super_agent" ?
-                        <a
+                      <a
                         href="#"
                         className="btn"
                         onClick={() => {
@@ -235,23 +233,6 @@ const Home = () => {
                           ]
                         )}
                       </a>
-                      :
-                      <a
-                        href="#"
-                        className="btn"
-                        
-                      >
-                        <i className="fas fa-user-plus pe-1"></i> Add{" "}
-                        {startCase(
-                          constants.user_next_status[
-                            user_params[1] !== undefined &&
-                            user_params[0] !== ""
-                              ? user_params[1]
-                              : user?.userType
-                          ]
-                        )}
-                      </a>
-                      }
                       <a href="#" className="btn" onClick={resetList}>
                         {" "}
                         <i className="fas fa-redo-alt"></i>

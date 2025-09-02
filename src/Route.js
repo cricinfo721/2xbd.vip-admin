@@ -87,11 +87,11 @@ import AgentWithdrawHistory from "./pages/AgentWithdrawHistory";
 import AgentRefrralList from "./pages/AgentRefrralList";
 import AffilateList from "./pages/Users/AffilateList";
 import MatchedAll from "./pages/RiskManagement/MatchedAll";
-import ChatSupport from "./pages/MyAccount/ChatSupport";
 
 import AffiliateKyc from "./pages/AffiliateKyc";
 import AffiliateKycList from "./pages/AffiliateKycList";
 import Turnover from "./pages/Users/Turnover";
+import AllAprofitByDownline from "./pages/AllAprofitByDownline";
 
 export const routes = [
   {
@@ -119,6 +119,7 @@ export const routes = [
     Component: BettingHistory,
     permission: [],
   },
+  
   {
     path: "/sms",
     Component: Sms,
@@ -384,11 +385,11 @@ export const routes = [
     Component: RiskManagement,
     permission: [],
   },
-  // {
-  //   path: "/banking",
-  //   Component: Banking,
-  //   permission: ["owner", "sub_owner"],
-  // },
+  {
+    path: "/banking",
+    Component: Banking,
+    permission: ["owner", "sub_owner"],
+  },
   {
     path: "/SetBookMarker",
     Component: SetBookMarker,
@@ -639,11 +640,6 @@ export const routes = [
     permission: [],
   },
   {
-    path:"/chat-support",
-    Component: ChatSupport,
-    permission: [],
-  },
-  {
     path: "/affiliate-kyc",
     Component:  AffiliateKyc,
     permission: [],
@@ -658,6 +654,16 @@ export const routes = [
   {
     path: "/turnover/:id/:type",
     Component: Turnover,
+    permission: [],
+  },
+  {
+    path: "/AllAprofitByDownline",
+    Component: AllAprofitByDownline,
+    permission: [],
+  },
+  {
+    path: "/AllAprofitByDownline/:id/:user_type",
+    Component: AllAprofitByDownline,
     permission: [],
   },
 ];

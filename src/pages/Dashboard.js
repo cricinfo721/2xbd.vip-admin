@@ -29,88 +29,84 @@ const Dashboard = () => {
   return (
     <div>
       {user?.userType == "agent" && (
-        <div className="d-flex align-items-start">
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              paddingTop: "10px",
-              fontSize: "15px",
-              border: "#ccc thin solid",
-              background: "#fff",
-              marginTop: "15px",
-              marginLeft: "22px",
+         <div className="d-flex align-items-start">
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            paddingTop:"10px",
+            fontSize: "15px",
+            border: "#ccc thin solid",
+            background: "#fff",
+            marginTop: "15px",
+            marginLeft: "22px",
+            borderRadius: "20px",
+            padding: "5px 0",
+            paddingLeft: "0px"
+          }} >
+          <span style={{ paddingLeft: "12px"}}>User Referal Code : </span> 
+          <span
+            style={{ 
+              cursor: "pointer", color: "#fff",paddingLeft:"5px",
+              background: "green",
               borderRadius: "20px",
-              padding: "5px 0",
-              paddingLeft: "0px",
-            }}
-          >
-            <span style={{ paddingLeft: "12px" }}>User Referal Code : </span>
-            <span
-              style={{
-                cursor: "pointer",
-                color: "#fff",
-                paddingLeft: "5px",
-                background: "green",
-                borderRadius: "20px",
-                padding: "5px 20px",
-                margin: "0 5px",
-              }}
-              onClick={() => {
-                copy(
-                  "https://"+helpers?.getDomain()+"/register?referral_code=" +
-                    profileData?.referalCode
-                );
-              }}
-              className="text-start"
-            >
-              {profileData?.referalCode
-                ? " https://"+helpers?.getDomain()+"/register?referral_code=" +
+              padding: "5px 20px",
+              margin: "0 5px" }}
+            onClick={() => {
+              copy(
+                "https://"+helpers?.getDomain()+"/register?referral_code=" +
                   profileData?.referalCode
-                : "-"}
-            </span>
-          </div>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              paddingTop: "10px",
-              fontSize: "15px",
-              border: "#ccc thin solid",
-              background: "#fff",
-              marginTop: "15px",
-              marginLeft: "22px",
-              borderRadius: "20px",
-              padding: "5px 0",
-              paddingLeft: "0px",
+              );
             }}
+            className="text-start"
           >
-            <span style={{ paddingLeft: "12px" }}>Agent Referal Code : </span>
-            <span
-              style={{
-                cursor: "pointer",
-                color: "#fff",
-                paddingLeft: "5px",
-                background: "green",
-                borderRadius: "20px",
-                padding: "5px 20px",
-                margin: "0 5px",
-              }}
-              onClick={() => {
-                copy(
-                  "https://"+helpers?.getDomain()+"/affilate?referral_code=" +
-                    profileData?.referalCode
-                );
-              }}
-              className="text-start"
-            >
-              {profileData?.referalCode
-                ? " https://"+helpers?.getDomain()+"/affilate?referral_code=" +
-                  profileData?.referalCode
-                : "-"}
-            </span>
-          </div>
+            { profileData?.referalCode
+              ? " https://"+helpers?.getDomain()+"/register?referral_code=" +
+                profileData?.referalCode
+              : "-"}
+          </span>
         </div>
+        <div
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          paddingTop: "10px",
+          fontSize: "15px",
+          border: "#ccc thin solid",
+          background: "#fff",
+          marginTop: "15px",
+          marginLeft: "22px",
+          borderRadius: "20px",
+          padding: "5px 0",
+          paddingLeft: "0px",
+        }}
+      >
+        <span style={{ paddingLeft: "12px" }}>Agent Referal Code : </span>
+        <span
+          style={{
+            cursor: "pointer",
+            color: "#fff",
+            paddingLeft: "5px",
+            background: "green",
+            borderRadius: "20px",
+            padding: "5px 20px",
+            margin: "0 5px",
+          }}
+          onClick={() => {
+            copy(
+              "https://"+helpers?.getDomain()+"/affilate?referral_code=" +
+                profileData?.referalCode
+            );
+          }}
+          className="text-start"
+        >
+          {profileData?.referalCode
+            ? " https://"+helpers?.getDomain()+"/affilate?referral_code=" +
+              profileData?.referalCode
+            : "-"}
+        </span>
+      </div>
+      </div>
       )}
       <ChartComp />
       <RecentRegistered />

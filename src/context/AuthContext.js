@@ -189,7 +189,7 @@ export const AuthProvider = ({ children }) => {
         const token = data?.results?.token || null;
         const refresh_token = data?.results?.refresh_token || null;
         setUserCoins(data.results.totalCoins);
-          localStorage.setItem("token", token);
+        localStorage.setItem("token", token);
         localStorage.setItem("refresh_token", refresh_token);
         setUser(jwt_decode(token));
         localStorage.setItem("uniqueId", body.uniqueId);

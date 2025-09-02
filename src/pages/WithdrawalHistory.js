@@ -48,13 +48,13 @@ const WithdrwalHistory = () => {
 
   const handlePageClick = (event) => {
     let obj = {
-      ...filter,
       page: event.selected + 1,
       limit: filter?.limit,
       startDate: filter?.startDate,
       endDate: filter?.endDate,
       keyword: filter?.keyword,
       status: filter?.status,
+      
     };
     setFilter(obj);
     getData(obj);
@@ -322,7 +322,7 @@ const WithdrwalHistory = () => {
                             <td>{item?.amount}</td>
                             <td>{startCase(item?.type) || "-"}</td>
                             <td>{obj?.dateFormat(item?.createdAt)}</td>
-
+                            
                             <td>
                               {(item?.status == "completed" && item?.transferedProcess=="process")?<span className="text-success">Processing</span>:item?.status == "completed"
                                 ?<span className="text-success">Approve</span>

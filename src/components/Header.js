@@ -110,7 +110,7 @@ const Header = () => {
                     <img
                       src="./assets/images/logo.png"
                       alt=""
-                      style={{ maxWidth: `40%` }}
+                      style={{ maxWidth: `25%` }}
                     />
                   </a>
                 </div>
@@ -150,27 +150,12 @@ const Header = () => {
                             />
                             <span>{count?.withdrawalRequests || 0}</span>
                           </li>
-                          <li
-                            onClick={() => navigate("/chat-support")}
-                            className="header-count cursor-pointer"
-                            style={{ cursor: "pointer" }}
-                          >
-                            <i
-                              class="fa-solid fa-bell fa-2xl"
-                              style={{ color: `#000` }}
-                            ></i>
-                            <span>{count?.totalUnreadCount || 0}</span>
-                          </li>
                         </>
                       )}
                       <li>
                         <span>
-                          {user?.userType == "super_admin"?
-                          "Admin"
-                          :(user?.userType == "super_agent")
-                            ? "Super Affiliate"
-                            :(user?.userType == "agent")
-                            ?"Affiliate"
+                          {user?.userType == "super_admin"
+                            ? "Admin"
                             : user?.userType || ""}
                         </span>{" "}
                         <strong>{user?.username || ""}</strong>
@@ -277,14 +262,14 @@ const Header = () => {
                       {" "}
                       Profit/Loss Report by Downline
                     </NavDropdown.Item> */}
-                          <NavDropdown.Item
-                            onClick={() => setExpanded(false)}
-                            as={NavLink}
-                            to="/AprofitDownline"
-                          >
-                            {" "}
-                            Profit/Loss by Downline
-                          </NavDropdown.Item>
+                         <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={NavLink}
+                      to="/AllAprofitByDownline"
+                    >
+                      {" "}
+                      All Profit/Loss Report by Downline
+                    </NavDropdown.Item>
                           <NavDropdown.Item
                             onClick={() => setExpanded(false)}
                             as={NavLink}
@@ -379,21 +364,21 @@ const Header = () => {
                   </Nav.Link>
                   {/* {user?.userType == "agent" && ( */}
 
-                 {(user?.userType == "sub_owner" ||
+                  {(user?.userType == "sub_owner" ||
                     user?.userType == "owner") && (
                     <NavDropdown
                       title="Banking Management"
                       id="basic-nav-dropdown"
                     >
-                    {/*    <NavDropdown.Item
+                      {/* <NavDropdown.Item
                         onClick={() => setExpanded(false)}
                         as={NavLink}
                         to="/banking"
                       >
                         {" "}
                         Banking
-                      </NavDropdown.Item>
-*/}
+                      </NavDropdown.Item> */}
+
                       <NavDropdown.Item
                         onClick={() => setExpanded(false)}
                         as={NavLink}
@@ -403,19 +388,19 @@ const Header = () => {
                         Banks
                       </NavDropdown.Item>
                     </NavDropdown>
-                  )} 
+                  )}
                   <NavDropdown title="Commission" id="basic-nav-dropdown">
                     {(user?.userType == "owner" ||
                       user?.userType == "sub_owner") && (
-                      <NavDropdown.Item
-                        onClick={() => setExpanded(false)}
-                        as={NavLink}
-                        to="/Withdraw_request"
-                      >
-                        {" "}
-                        Withdraw Request
-                      </NavDropdown.Item>
-                    )}
+                        <NavDropdown.Item
+                          onClick={() => setExpanded(false)}
+                          as={NavLink}
+                          to="/Withdraw_request"
+                        >
+                          {" "}
+                          Withdraw Request
+                        </NavDropdown.Item>
+                      )}
                     <NavDropdown.Item
                       onClick={() => setExpanded(false)}
                       as={NavLink}
@@ -424,8 +409,7 @@ const Header = () => {
                       {" "}
                       Commission Report
                     </NavDropdown.Item>
-                    {user?.userType == "agent" || 
-                    user?.userType == "super_agent" ?
+                    {user?.userType == "agent" &&
                     <NavDropdown.Item
                       onClick={() => setExpanded(false)}
                       as={NavLink}
@@ -433,7 +417,7 @@ const Header = () => {
                     >
                       {" "}
                       Affiliate KYC
-                    </NavDropdown.Item>:""}
+                    </NavDropdown.Item>}
                     {(user?.userType == "owner" ||
                       user?.userType == "sub_owner") && (
                       <NavDropdown.Item
@@ -479,7 +463,7 @@ const Header = () => {
                       >
                         {" "}
                         Wallet Withdrawal
-                      </NavDropdown.Item> 
+                      </NavDropdown.Item>
                       <NavDropdown.Item
                         onClick={() => setExpanded(false)}
                         as={NavLink}

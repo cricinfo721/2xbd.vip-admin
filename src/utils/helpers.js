@@ -15,7 +15,7 @@ const obj = {
   },
   msgDateFormat: (date, timeZone) => {
     var convertedDate = new Date(date).toLocaleDateString(undefined, {
-      timeZone: timeZone ? timeZone : "Asia/Kolkata",
+      timeZone: timeZone ? timeZone : "Asia/Dhaka",
     });
 
     return convertedDate.toString();
@@ -29,45 +29,6 @@ const obj = {
 
     return parseFloat(finalResult);
     
-},
-timeAgo :(date)  =>{
-  const now = new Date();
-    const seconds = Math.floor((now - date) / 1000);
-
-    const intervals = [
-        { label: "year", seconds: 31536000 },
-        { label: "month", seconds: 2592000 },
-        { label: "week", seconds: 604800 },
-        { label: "day", seconds: 86400 },
-        { label: "hour", seconds: 3600 },
-        { label: "minute", seconds: 60 },
-        { label: "second", seconds: 1 }
-    ];
-
-    for (const interval of intervals) {
-        const count = Math.floor(seconds / interval.seconds);
-        if (count > 0) {
-            return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
-        }
-    }
-
-    return "just now";
-  
-},
-calculateDifferenceInMinutes :(startDate)  =>{
-  const start = new Date();
-  const end = new Date(startDate);
-// console.log("start",start);
-// console.log("end",end);
-
-  // Difference in milliseconds
-  const diffInMs = Math.abs(end - start);
-
-  // Convert milliseconds to minutes
-  const diffInMinutes = Math.floor(diffInMs / 60000);
-
-  return diffInMinutes;
-  
 },
 getDomain :()  =>{
   let hostname = window.location.hostname;

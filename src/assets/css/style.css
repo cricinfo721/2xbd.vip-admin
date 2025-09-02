@@ -55,7 +55,7 @@ img {
 }
 
 .top-header {
-  background-color: rgb(49 53 41);
+  background-color: #0088da;
   padding: 15px 0px;
 }
 
@@ -63,7 +63,9 @@ img {
   display: inline-block;
   margin-right: 18px;
 }
-
+.paymetn-box figure {
+    margin: 0!important;
+}
 .top-header-owner li strong {
   font-weight: 500;
 }
@@ -546,20 +548,20 @@ img {
 
 .theme_dark_btn,
 .green-btn {
-  background: #14825f  !important;
+  background: #ffcc2f !important;
   box-shadow: none;
-  border: 1px solid #14825f  !important;
+  border: 1px solid #cb8009 !important;
   font-weight: bold;
-  color: #fff !important;
+  color: #333 !important;
   font-size: 12px;
   border-radius: 5px;
 }
 
 .theme_dark_btn:hover,
 .green-btn:hover {
-  background: #14825f  !important;
-  color: #fff;
-  border-color: #14825f ;
+  background: #ffa00c !important;
+  color: #333;
+  border-color: #cb8009;
 }
 
 .agent-path ul {
@@ -1124,7 +1126,7 @@ img {
 .login-sec form .green-btn span img {
   width: 1.15rem;
   height: 1.15rem;
-  
+  filter: invert(1);
 }
 
 .login-sec form canvas {
@@ -2084,14 +2086,14 @@ form.super-admin-form {
 .login_logo img {
   margin-right: 1.75rem;
   margin-bottom: 1.25rem;
-  /* height: 5rem; */
+  height: 5rem;
   width: 14rem;
 }
 
 .support-wrap {
   background-color: rgba(0, 0, 0, 0.6);
   margin-top: 20px;
-  
+  display: block;
 }
 
 .support-wrap .support-service {
@@ -2470,7 +2472,7 @@ form.super-admin-form {
   font-weight: 600;
 }
 .login_logo img {
-  /* height: 5rem; */
+  height: 5rem;
   margin-bottom: 1.25rem;
   margin-right: 1.75rem;
   width: 14rem;
@@ -2666,6 +2668,8 @@ form.super-admin-form {
   margin-bottom: 6px;
   margin-top: 10px;
 }
+
+
 
 
 .atab{background: #b50f58; display: flex; margin: 0; padding: 0;}
@@ -3065,6 +3069,61 @@ form.super-admin-form {
 
 .turnoverpopup .modal-content{
   padding:0!important
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  padding: 25px 54px!important;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ffa00c ;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }
 .d-w-modal .modal-content{
   width: 800px!important;

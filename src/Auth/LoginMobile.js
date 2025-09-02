@@ -9,6 +9,7 @@ import apiPath from "../utils/apiPath";
 import styles from "../assets/newCss/sky.css";
 import { Helmet } from "react-helmet";
 import helpers from "../utils/helpers";
+import { AiFillEye,AiFillEyeInvisible } from "react-icons/ai";
 
 function LoginMobile(props) {
   let { loginUser, isLoged, user } = useContext(AuthProvider);
@@ -26,12 +27,12 @@ function LoginMobile(props) {
       uniqueId: Math.random() * 10000,
     },
   });
-  const [getValidateCode, setValidateCode] = useState("");
+  // const [getValidateCode, setValidateCode] = useState("");
   const [data, setData] = useState({});
   const onSubmit2 = (data) => {
-   // if (parseInt(data.validateCode) === parseInt(getValidateCode)) {
+    // if (parseInt(data.validateCode) === parseInt(getValidateCode)) {
       loginUser(data);
-    //}
+    // }
   };
   // const canvasRef = useRef(null);
   // const changeCode = () => {
@@ -54,10 +55,10 @@ function LoginMobile(props) {
       }
     } catch (err) { }
   };
-  // useEffect(() => {
-  //   changeCode();
-  //   // getSetting();
-  // }, []);
+  useEffect(() => {
+    //changeCode();
+    // getSetting();
+  }, []);
   useEffect(() => {
     // console.log('%cLogin.js line:43 user', 'color: #007acc;', user);
     if (user !== null) {
@@ -66,7 +67,16 @@ function LoginMobile(props) {
       navigate("/");
     }
   }, [user]);
-
+  const [passwordType, setPasswordType] = useState("password");
+  const togglePassword =(e)=>{
+    e.preventDefault()
+    if(passwordType==="password")
+    {
+     setPasswordType("text")
+     return;
+    }
+    setPasswordType("password")
+  }
   return (
     <div className="newLogin">
       <Helmet>
@@ -111,8 +121,9 @@ function LoginMobile(props) {
               style={{ marginBottom: "10px" }}
               id="passwordErrorClass"
             >
+               <div style={{ position:'relative',width:`100%`}}>
               <Form.Control
-                type="password"
+                 type={passwordType ?passwordType:"password"}
                 autocomplete="off"
                 // id="password"
                 className={errors2.password ? "is-invalid" : "mb-3"}
@@ -122,6 +133,12 @@ function LoginMobile(props) {
                 data-role="none"
                 placeholder="Password"
               />
+               <div className="input-group-btn" style={{position:'absolute', right:'0', top:'-10', bottom:'0px'}}>
+              <span className="btn btn-outline-primary" onClick={togglePassword} style={{backgroundColor:'transparent', border:'0',padding:'8px', paddingTop:'3px', height:'72%'}}>
+                {passwordType==="password"?<AiFillEyeInvisible color="#000"/> :  <AiFillEye color="#000"/>}
+              </span>
+            </div>
+          </div>
               {errors2.password && errors2.password.message && (
                 <label className="invalid-feedback text-left">
                   {errors2.password.message}
@@ -154,7 +171,7 @@ function LoginMobile(props) {
                 placeholder="Validation Code"
               
               />
-              
+             
               <canvas
                 ref={canvasRef}
                 onClick={changeCode}
@@ -168,7 +185,7 @@ function LoginMobile(props) {
                 </label>
               )}
             </dd> */}
-            
+           
             <div className="text-center mt-0">
               <Button type="submit" className="theme-btn ms-auto px-5" id="loginBtn">
                 Login
@@ -184,7 +201,6 @@ function LoginMobile(props) {
             )}
           </dl>
         </Form>
-        
         <div id="supportWrap" className="support-wrap">
                 <div className="support-service">
                   <a
@@ -192,26 +208,25 @@ function LoginMobile(props) {
                     href="#"
                     className="support-whatsapp open"
                   >
-                    <img src="assets/images/telegram.svg" title="WhatsApp" />
+                    <img src="assets/images/watsapp.svg" title="WhatsApp" />
                   </a>
                 </div>
 
-                 <div className="support-info">
+                <div className="support-info">
                   <div
                     id="supportDetail_whatsapp"
                     className="support-detail open"
                   >
-                    <a href="https://t.me/">+</a>
+                    <a href="https://wa.me/+">+</a>
                   </div>
-                </div> 
-              </div>
-              <div className=""style={{color:`#fff`,fontSize:`16px`,marginTop:`5px`,textAlign:`center`}}>Affiliate Link  <a href={"https://aff."+helpers?.getDomain()+"/"} target="_blank" className="">Click </a></div>
+                </div>
+                <div className=""style={{color:`#fff`,fontSize:`16px`,marginTop:`5px`,textAlign:`center`}}>Affiliate Link  <a href={"https://aff."+helpers?.getDomain()+"/"} target="_blank" className="">Click </a></div>
 
+              </div>
         </div>
-        
+
         
       </div>
-      
     </div>
   );
 }

@@ -12,7 +12,7 @@ import { ResetPassword } from "../components/ResetPassword";
 import { DepositForm } from "../components/DepositForm";
 
 const GeneralSetting = () => {
-  let { user_coins, user, getCoins,getProfileData,profileData } = useContext(AuthContext);
+  let { user_coins, user, getCoins ,getProfileData,profileData } = useContext(AuthContext);
   const [user_coin_balance, setUserCoins] = useState(user_coins);
   const [changePassword, setChangePassword] = useState(false);
   const changePasswordToggle = () => setChangePassword(!changePassword);

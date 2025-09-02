@@ -196,7 +196,7 @@ const Turnover = () => {
             </ul>
           </div>
           {detail?.status && (
-            <Modal centered show={detail?.status} onHide={handleCloseVerify}>
+            <Modal centered show={detail?.status} onHide={handleCloseVerify} className="turnoverpopup">
               <Modal.Header closeButton className="turn-pop-header">
                 <Modal.Title>Normal</Modal.Title>
               </Modal.Header>

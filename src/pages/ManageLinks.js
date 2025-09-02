@@ -47,7 +47,7 @@ const ManageLinks = () => {
 
   const getLinkData = async () => {
     const { status, data: response_users } = await apiGet(
-      pathObj.getWebsiteLinkData + "?websiteId=6713770a106ac41f0d6c38ab",
+      pathObj.getWebsiteLinkData + "?websiteId=" + select,
       search_params
     );
     if (status === 200) {
@@ -134,7 +134,7 @@ const ManageLinks = () => {
     }
     try {
       let response = await apiPost(pathObj.updateWebsiteSetting, {
-        websiteId: "6713770a106ac41f0d6c38ab",
+        websiteId: select,
         telegramContent: telegramContent,
         whatsappContent: whatsappContent,
         telegramShowing: telegramShowing,
