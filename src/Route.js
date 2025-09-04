@@ -92,6 +92,7 @@ import AffiliateKyc from "./pages/AffiliateKyc";
 import AffiliateKycList from "./pages/AffiliateKycList";
 import Turnover from "./pages/Users/Turnover";
 import AllAprofitByDownline from "./pages/AllAprofitByDownline";
+import Offer from "./pages/Offer/Offer";
 
 export const routes = [
   {
@@ -664,6 +665,11 @@ export const routes = [
   {
     path: "/AllAprofitByDownline/:id/:user_type",
     Component: AllAprofitByDownline,
+    permission: [],
+  },
+    {
+    path: "/offer",
+    Component: Offer,
     permission: [],
   },
 ];

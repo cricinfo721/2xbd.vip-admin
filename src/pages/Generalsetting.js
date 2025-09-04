@@ -209,7 +209,7 @@ const GeneralSetting = () => {
                 )}
                 {user?.userType === "sub_owner" && (
                   <li>
-                    <Link to="/promotionalOffer">
+                    <Link to="/offer">
                       {" "}
                       <figure>
                         {" "}

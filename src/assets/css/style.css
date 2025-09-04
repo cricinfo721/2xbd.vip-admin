@@ -3146,3 +3146,49 @@ form.super-admin-form {
 .d-w-modal label.invalid-feedback{
 text-align: left;
 }
+.promotional-offer-form-div .form-control, .promotional-offer-form-divs .form-select{
+  width: 100%;
+}
+.promotional-offer-form-div .modal-content{
+  width:100%;
+  max-width:980px
+}
+.promotional-offer-form-div .modal-dialog{
+  width:100%;
+  max-width:980px
+}
+.promotional-offer-form-div .form-label{
+font-size: 14px;
+}
+.image-prev {
+  display: flex;
+  white-space: nowrap;
+  width: 100%;
+  ALIGN-ITEMS: CENTER;
+  GAP: 10PX;
+  MARGIN-TOP: 10PX;
+  MARGIN-TOP: 10PX;
+  position: relative;
+}
+.image-prev img{
+  border-radius: 6px;
+  max-height: 120px;
+}
+
+.image-prev button{
+  position: absolute;
+    border: navajowhite;
+    border-radius: 50%;
+    right: -8px;
+    top: -15px;
+    width: 25px;
+    height: 25px;
+    background-color: #F44336;
+    color: #fff;
+
+}.ck.ck-editor__editable {
+    height: 200px!important;
+}
+.offer-modal .modal-content{
+  width: 100%;
+}

@@ -169,7 +169,8 @@ const pathObj = {
   updateKycStatus: "/v1/admin/update-kyc-status",
   reportDownlineNew: "/v1/admin/report/downline-new",
   editProfile: "/v1/admin/edit-profile",
-
+  addOffer: "/v1/admin/add-update-offer",
+  getOffer: "/v1/admin/get-offer",
 
 };
 export default pathObj;
