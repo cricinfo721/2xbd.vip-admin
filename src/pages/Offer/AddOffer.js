@@ -1245,7 +1245,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                 </div>{" "}
               </>
             )}
-            {["Welcome Offer"].includes(watch("category")) && (
+            {/* {["Welcome Offer"].includes(watch("category")) && (
               <>
                 <h5 style={{ margin: "10px 0", fontWeight: "500" }}>
                   Bonus Get Variation
@@ -1482,7 +1482,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                   )}
                 </div>{" "}
               </>
-            )}
+            )} */}
             <Row>
               <Col sm={12} className="mb-2">
                 <Form.Group className="row">
