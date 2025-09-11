@@ -21,6 +21,8 @@ const AddOffer = ({ onClose, object, type, getData }) => {
     },
   });
   const [multiselect, setMultiSelect] = useState([]);
+    const [multiselect1, setMultiSelect1] = useState([]);
+
   const [image, setImage] = useState("");
   const [image2, setImage2] = useState("");
   const uploadImage = async (img) => {
@@ -65,6 +67,10 @@ const AddOffer = ({ onClose, object, type, getData }) => {
         body.variation = fieldGroups;
       }
     }
+    console.log("body",body?.offerOn);
+    if(isEmpty(body?.offerOn)){
+      body.offerOn="Other"
+    }
     if (multiselect?.length == 0) {
       toast.error("Please select offer apply on");
     } else {
@@ -92,6 +98,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
             offerImage: imageCheck,
             descriptionImage: descriptionImage,
             offerApplyOn: multiselect,
+            lossOfferApplyOn:multiselect1,
             id: !isEmpty(object) ? object?._id : "",
           }
         );
@@ -141,6 +148,9 @@ const AddOffer = ({ onClose, object, type, getData }) => {
       if (object?.offerApplyOn?.length > 0) {
         setMultiSelect(object?.offerApplyOn);
       }
+       if (object?.lossOfferApplyOn?.length > 0) {
+        setMultiSelect1(object?.lossOfferApplyOn);
+      }
       // setValue(
       //   "depositeVaritationPercentage",
       //   object?.depositeVaritationPercentage
@@ -159,7 +169,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
     "Deposit",
     //  ...(type != 'edit' ?  !hide ? ["Welcome Offer"] : []),
     "Welcome Offer",
-    "App Download Bonus",
+    // "App Download Bonus",
     // "Telegram Join Bonus",
      "Daily Loss Bonus",
      "Weekly Loss Bonus",
@@ -330,6 +340,41 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                   </div>
                 </Form.Group>
               </Col>
+               {[
+               
+                "Daily Loss Bonus",
+                "Weekly Loss Bonus",
+                "Monthly Loss Bonus",
+              ].includes(watch("category")) && ( 
+              <Col sm={12} lg={4} md={4} className="mb-2">
+                <Form.Group className="row">
+                  <div>
+                    <span
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Loss Offer Apply On 
+                    </span>
+                    <Multiselect
+                      disable={type == "show"}
+                      options={Offer} // Options to display in the dropdown
+                      selectedValues={multiselect1} // Preselected value to persist in dropdown
+                      onSelect={setMultiSelect1} // Function will trigger on select event
+                      onRemove={setMultiSelect1} // Function will trigger on remove event
+                      displayValue="name" // Property name to display in the dropdown options
+                    />
+
+                    {errors.lossOfferApplyOn && errors.lossOfferApplyOn.message && (
+                      <label className="invalid-feedback text-left">
+                        {errors.lossOfferApplyOn.message}
+                      </label>
+                    )}
+                  </div>
+                </Form.Group>
+              </Col>
+              )} 
               <Col sm={12} lg={4} md={4} className="mb-2">
                 <Form.Group className="row">
                   <div>
@@ -469,7 +514,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                   </div>
                 </Form.Group>
               </Col>
-              {watch("category") != "Refer Bonus" && (
+              {/* {watch("category") != "Refer Bonus" && ( */}
                 <Col sm={12} lg={4} md={4} className="mb-2">
                   <Form.Group className="row">
                     <div>
@@ -500,7 +545,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                     </div>
                   </Form.Group>
                 </Col>
-              )}
+              {/* )} */}
               <Col sm={12} lg={4} md={4} className="mb-2">
                 <Form.Group className="row">
                   <div>
@@ -563,9 +608,7 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                   </Form.Group>
                 </Col>
               )}
-              {/* {!["Monday Login Bonus", "Slots", "Fishing", "Crash"].includes(
-                watch("category")
-              ) && ( */}
+              {["Deposit", "Welcome Offer" , "Refer Bonus"].includes(watch("category")) && (
               <Col sm={12} lg={4} md={4} className="mb-2">
                 <Form.Group className="row">
                   <div>
@@ -589,6 +632,8 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                       <option value={""}>Select Deposite Type</option>{" "}
                       {(watch("category") == "Welcome Offer"
                         ? OfferOnListWelcome
+                        : watch("category") == "Refer Bonus"
+                        ? OfferOnReferList
                         : OfferOnList
                       )?.map((res) => {
                         return <option value={res?.key}>{res?.value}</option>;
@@ -617,8 +662,43 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                   </div>
                 </Form.Group>
               </Col>
-              {/* // )} */}
-              {![...condition, "Free Spin"].includes(watch("category")) && (
+               )} 
+               {[
+               
+               
+                "OnLossBonus",
+              ].includes(watch("offerOn")) && ( 
+              <Col sm={12} lg={4} md={4} className="mb-2">
+                <Form.Group className="row">
+                  <div>
+                    <span
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: "500",
+                      }}
+                    >
+                      Loss Offer Apply On 
+                    </span>
+                    <Multiselect
+                      disable={type == "show"}
+                      options={Offer} // Options to display in the dropdown
+                      selectedValues={multiselect1} // Preselected value to persist in dropdown
+                      onSelect={setMultiSelect1} // Function will trigger on select event
+                      onRemove={setMultiSelect1} // Function will trigger on remove event
+                      displayValue="name" // Property name to display in the dropdown options
+                    />
+
+                    {errors.lossOfferApplyOn && errors.lossOfferApplyOn.message && (
+                      <label className="invalid-feedback text-left">
+                        {errors.lossOfferApplyOn.message}
+                      </label>
+                    )}
+                  </div>
+                </Form.Group>
+              </Col>
+              )} 
+
+              {![...condition, "Free Spin","Refer Bonus"].includes(watch("category")) && (
                 <Col sm={12} lg={4} md={4} className="mb-2">
                   <Form.Group className="row">
                     <div>
@@ -685,6 +765,8 @@ const AddOffer = ({ onClose, object, type, getData }) => {
                 </Form.Group>
               </Col>
               {/* // )} */}
+
+              
               <Col sm={12} lg={4} md={4} className="mb-2">
                 <Form.Group className="row">
                   <div>
@@ -1657,6 +1739,15 @@ const OfferOnList = [
   { key: "FreeSpin", value: "FreeSpin" },
   { key: "ReferBonus", value: "Refer Bonus" },
   // { key: "FancyBet", value: "Fancy Bet" },
+];
+
+const OfferOnReferList = [
+  { key: "OnFirstDeposit", value: "OnFirstDeposit" },
+  { key: "OnDailyFirstDeposit", value: "OnDailyFirstDeposit" },
+  { key: "OnDeposit", value: "OnDeposit" },
+  { key: "OnSecondDeposit", value: "OnSecondDeposit" },
+  { key: "OnThirdDeposit", value: "OnThirdDeposit" },
+  { key: "OnLossBonus", value: "OnLossBonus" },
 ];
 
 const OfferOnListWelcome = [

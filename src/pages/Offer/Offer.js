@@ -99,7 +99,9 @@ const Offer = () => {
                     <thead>
                       <tr>
                         <th scope="col">Sr no.</th>
-                        <th scope="col">Title</th> <th scope="col">Category</th>
+                        <th scope="col">Title</th> 
+                        <th scope="col">Offer Code</th> 
+                        <th scope="col">Category</th>
                         <th scope="col">Offer Type</th>
                         <th scope="col">Offer On</th>
                         <th scope="col">Offer Start Date</th>{" "}
@@ -115,6 +117,7 @@ const Offer = () => {
                             <tr>
                               <td>{index + 1}</td>
                               <td>{res?.title}</td>
+                               <td>{res?.offerCode}</td>
                               <td>{res?.category}</td>
                               <td>{res?.offerType}</td>
                               <td>{res?.offerOn}</td>
