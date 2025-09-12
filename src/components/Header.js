@@ -320,6 +320,33 @@ const Header = () => {
                     >
                       International Casino P/L Downline Monthly
                     </NavDropdown.Item> */}
+                      {user?.userType === 'sub_owner' || user?.userType === 'super_admin' || user?.userType === 'admin'|| user?.userType === 'agent' ?
+                 <>
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={NavLink}
+                      to="/ReferralList"
+                    >
+                      {" "}
+                      Referral Report
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={NavLink}
+                      to="/SpinReport"
+                    >
+                      {" "}
+                      Spin Report
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={NavLink}
+                      to="/ActiveSpinReport"
+                    >
+                      {" "}
+                      Active Spin
+                    </NavDropdown.Item>
+                   </> :""}
                         </NavDropdown>
                       </>
                     ))}

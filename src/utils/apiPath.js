@@ -159,7 +159,6 @@ const pathObj = {
   updateStatusBank: "/v1/admin/update-bank-status",
   withdrawalCheck:"/v1/admin/withdrawal-check",
   profileUpdate: "/v1/admin/edit-profile",
-
   turnoverList:"/v1/admin/turnover-list",
   kycUpload: "/v1/admin/kyc-upload",
   affEditDocument: "/v1/admin/aff-edit-document",
@@ -171,6 +170,9 @@ const pathObj = {
   editProfile: "/v1/admin/edit-profile",
   addOffer: "/v1/admin/add-update-offer",
   getOffer: "/v1/admin/get-offer",
+  referralReport: "/v1/admin/report/referral-list",
+  spinReport: "/v1/admin/report/spin-report",
+  activespinreport: "/v1/admin/report/active-spin-report",
 
 };
 export default pathObj;

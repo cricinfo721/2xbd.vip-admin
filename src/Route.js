@@ -93,7 +93,9 @@ import AffiliateKycList from "./pages/AffiliateKycList";
 import Turnover from "./pages/Users/Turnover";
 import AllAprofitByDownline from "./pages/AllAprofitByDownline";
 import Offer from "./pages/Offer/Offer";
-
+import ReferralList from "./pages/ReferralReport";
+import SpinReport from "./pages/SpinReport";
+import ActiveSpinReport from "./pages/ActiveSpinReport";
 export const routes = [
   {
     path: "/",
@@ -671,5 +673,20 @@ export const routes = [
     path: "/offer",
     Component: Offer,
     permission: [],
+  },
+  {
+    path: "/ReferralList",
+    Component: ReferralList,
+    permission: ["sub_owner","super_admin","super_agent","admin","agent"],
+  },
+  {
+    path: "/SpinReport",
+    Component: SpinReport,
+    permission: ["sub_owner","super_admin","super_agent","admin","agent"],
+  },
+  {
+    path: "/ActiveSpinReport",
+    Component: ActiveSpinReport,
+    permission: ["sub_owner","super_admin","super_agent","admin","agent"],
   },
 ];
